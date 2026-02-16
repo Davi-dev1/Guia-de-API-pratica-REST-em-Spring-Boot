@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desenvolvimento Back end em java </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <style>
+      .banner {
+        background: linear-gradient(to right, #007bff, #00c6ff);
+        padding: 2rem;
+        border-radius: 0.5rem;
+        color: white;
+      }
+      .background {
+        background-image: url("background-image.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        padding: 1rem 0;
+        text-align: center;
+      }
+      .footer .btn {
+        background-color: #007bff;
+        color: white;
+      }
+      .nav-pills .nav-link {
+        color: #000;
+      }
+      .nav-pills .nav-link.active {
+        background-color: #007bff;
+      }
+      .nav-pills .nav-link:not(.active):hover {
+        background-color: #0056b3;
+        color: white;
+      }
+      .container {
+        max-width: 960px;
+      }
+      .about-us {
+        border: 2px solid #000000;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.8);
+
+        #underline {
+          text-decoration: none;
+        }
+      }
+      #image-description {
+        text-align: center;
+        font-style: italic;
+        color: #555;
+
+
+        .container d-flex justify-content-center my-4 {
+          max-width: 960px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header
+        class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+      >
+        <a
+          href="/"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4">Desenvolvimento Back end em java </span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active" aria-current="page"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="PostData.html" class="nav-link">Cadastrar</a>
+          </li>
+        </ul>
+      </header>
+    </div>
+
+    <!-- Banner Text Section -->
+    <div class="container my-4">
+      <h1 class="display-5 fw-bold">Bem-vindo ao mundo da programação back-end em Java!</h1>
+      <p class="col-md-8 fs-4">Seu guia completo para desenvolver APIs robustas e escaláveis em Java.</p>
+    </div>
+
+    <!-- Presentation Text Section -->
+    <div class="container my-4 background about-us">
+      <h2>API</h2>
+      <p>
+        Decidi criar este manual que ficará disponivel em meu <a id="underline" href = "https://github.com/Davi-dev1/Guia-de-API-pratica-REST-em-Spring-Boot"  target="_blank">GitHub</a> para servir como guia de estudo
+        e como uma fonte de consulta rápida para desenvolvedores que desejam aprimorar suas habilidades em desenvolvimento de APIs utilizando Java.
+       Como foco usei o framework Spring Boot, que é amplamente utilizado na indústria para construir aplicações web robustas e escaláveis.
+        Neste manual, você encontrará uma abordagem prática e direta, com exemplos de código claros e explicativos que facilitarão o entendimento dos conceitos abordados.
+        Desde as anotações em java até a configuração do ambiente de desenvolvimento, passando pela criação de endpoints RESTful, manipulação de dados com JPA/Hibernate, testes e muito mais.
+      </p>
+    </div>
+
+    <!-- Centered Image -->
+    <div class="container d-flex justify-content-center my-4">
+      <img src="public.avif" alt="Nao fois">
+      
+    </div>
+    <p id="image-description"><i>   Imagem da logo do  spring boot</i></p>
+
+    <!-- Footer with Cadastrar Button -->
+    <div class="footer">
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        onclick="location.href='PostData.html'"
+      >
+        Cadastre-se
+      </button>
+    </div>
+  </body>
+</html>
