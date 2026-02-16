@@ -1,0 +1,143 @@
+<html lang="pt-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fudamentos de Desenvolvimento de APIS em Java</title>
+    <link href="não sei.css" rel="stylesheet" </head>
+
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">|API|</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="index.html" class="nav-link " aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="PostData.html" class="nav-link active">Cadastrar</a></li>
+                
+            </ul>
+        </header>
+    </div>
+    <div class="container">
+        <div class="col-md-12 col-lg-12">
+            <h4 class="mb-3">Cadastrar</h4>
+            <p>
+                Olá! Gostaríamos de agradecer por depositar sua confiança em nós da Conecta+. Lembramos que os dados fornecidos não serão vendidos ou compartilhados com ninguém. Enviaremos um e-mail para você avisando sobre o lançamento oficial da Conecta+ na web. Para os vencedores dos jogos, enviaremos junto com o aviso um link para resgatar seu prêmio.
+              </p>
+
+
+            <form action="http://localhost:8080/users/save" id="formulario" class="needs-validation">
+
+                <div class="col-sm-12">
+                    <label for="users" class="form-label">Nome:</label>
+                    <input type="text" name="users" id="name" class="form-control" required>
+                </div>
+
+
+
+                <div class="col-sm-12">
+                    <label for="pass" class="form-label">Senha ( insira uma senha de pelo menos 6 caracteres e 1
+                        caractere especial):</label>
+                    <input type="password" name="pass" id="senha" class="form-control" required>
+                </div>
+
+                <div class="col-sm-12">
+                    <label for="cpf" class="form-label">CPF:</label>
+                    <input type="cpf" name="cpf" id="cpf" class="form-control" required>
+
+
+                <div class="col-sm-12">
+                    <label for="brhitday " class="form-label">Data de nascimento:</label>
+                    <input type="date" name="brhitday" id="datadenascimento" class="form-control" required>
+                </div>
+            
+
+                <script>
+                    const dataInput = document.getElementById("datadenascimento");
+                    let brhitday="";
+
+                    // Manipulando o evento de alteração
+                    dataInput.addEventListener("change", (event) => {
+                        event.preventDefault();
+                        const data = event.target.value; // Obter o valor como objeto Date
+                        if(!data) return; // Verifica se a data é válida
+                        const [year, month, day] = data.split("-"); // Divide a string em partes [AAAA, MM, DD]
+                        brhitday=`${day}/${month}/${year}`; // Formata para DD/MM/AAAA
+                        console.log(`Data selecionada: ${brhitday}`);
+
+                   
+                   
+                         //console.log(`Ano: ${data.getFullYear()}, Mês: ${data.getMonth() + 1}, Dia: ${data.getDate()}`);
+                    });
+
+                </script>
+
+
+
+
+
+
+
+                </label>
+                <div class="row">
+                    <input type="submit" class="my-4 w-100 btn btn-primary btn-lg" id="enviar"
+                        value="Registrar Cadastro">
+
+                </div>
+                <div class="row">
+                    <div id="response" class="response">
+
+                    </div>
+
+                    <div id="txtFeedback" class="text-red text-center">
+
+
+                        <div id="txtFeedback" class="text-red text-center">
+
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+    <script>
+
+        const btn = document.getElementById('enviar');
+        const form = document.getElementById('formulario');
+        var url = 'http://localhost:8080/users/save';
+
+        form.addEventListener('submit', async function (event) {
+
+            event.preventDefault(); // Evita que o navegador envie um GET
+
+            const formData = new FormData(form);
+            console.log(formData);
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            });
+
+            if (response.ok) {
+                alert('Registro inserido com sucesso!');
+                console.log(response);
+            } else {
+                alert('Erro ao inserir registro!');
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>
